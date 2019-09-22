@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity() {
         println(mFoodItems[0].toString(""))
 
         for (item in mFoodItems){
-            createNotification(item)
+            createNotification(mFoodItems[0])
             val foodView: LinearLayout = createFoodView(this, item)
             foodView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -132,6 +132,7 @@ class MainActivity : AppCompatActivity() {
     private fun createNotification(item: FoodItem){
         var time = item.ExpiryDate.time - 2*24*60*60*1000 //sends the notification 2 days before
         if (time <= System.currentTimeMillis()+1000) time = System.currentTimeMillis()+5000
+        println(time-System.currentTimeMillis())
         NotificationUtils().setNotification(time, this@MainActivity)
         return
     }
