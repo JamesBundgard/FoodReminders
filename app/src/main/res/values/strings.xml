@@ -14,6 +14,7 @@
     <string name="purchase_date">Purchase Date</string>
     <string name="add">Add</string>
     <string name="cancel">Cancel</string>
+    <string name="notification_channel_description">Food Expiry Reminders</string>
     <string name="set_date">Set Date</string>
     <string name="ex_date">1/1/2019</string>
     <string name="reload_list">Reload list</string>
