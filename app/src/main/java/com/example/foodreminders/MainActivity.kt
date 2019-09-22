@@ -19,6 +19,7 @@ import androidx.core.app.ComponentActivity
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.widget.Button
 import java.io.*
 import kotlin.collections.ArrayList
 
@@ -142,6 +143,17 @@ class MainActivity : AppCompatActivity() {
         println(item.ExpiryDate.toString())
         expiryView.text = android.text.format.DateFormat.format("EEE LLL dd, yyyy", item.ExpiryDate)
         block.addView(expiryView)
+
+        val deleteButton = Button(this)
+        deleteButton.layoutParams = params
+        deleteButton.setOnClickListener {
+            mFoodItems.remove(item)
+            saveToFile(mFoodItems)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        deleteButton.text = "Del"
+        block.addView(deleteButton)
 
         return block
     }
