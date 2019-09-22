@@ -114,6 +114,10 @@ class MainActivity : AppCompatActivity() {
 
         val list: LinearLayout = findViewById(R.id.food_list)
         list.removeAllViews()
+
+        mFoodItems.sortWith(compareBy({it.ExpiryDate.time},{it.ExpiryDate.time}))
+        println(mFoodItems[0].toString(""))
+
         for (item in mFoodItems){
             val foodView: LinearLayout = createFoodView(this, item)
             foodView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
